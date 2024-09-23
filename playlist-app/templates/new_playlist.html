@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Add a Playlist</h1>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div>
+        <label for="name">Playlist Name:</label>
+        {{ form.name(size=32) }}
+        {% for error in form.name.errors %}
+            <span class="error">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        {{ form.description(rows=4, cols=32) }}
+        {% for error in form.description.errors %}
+            <span class="error">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <button type="submit">Add Playlist</button>
+</form>
+
+{% endblock %}
